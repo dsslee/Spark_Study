@@ -1,3 +1,4 @@
+from pyspark.sql.functions import *
 
 def shape(self):
 	"""
@@ -9,7 +10,6 @@ pyspark.sql.DataFrame.shape = shape
 
 
 def info(self, show = True):
-  
   '''
   Print concise summary of a pyspark.sql.DataFrame
   This method prints information about a DataFrame
@@ -36,6 +36,7 @@ def info(self, show = True):
   else:
     return result
 pyspark.sql.DataFrame.info = info
+
 
 
 def value_counts(self, subset, normalize = True, sort = True, ascending = False, show = True):
