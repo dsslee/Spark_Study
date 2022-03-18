@@ -79,3 +79,20 @@ def value_counts(self, subset, normalize = True, sort = True, ascending = False,
   else:
     return self
 pyspark.sql.DataFrame.value_counts = valueCounts
+
+df_sp = spark.read.parquet("people.parquet")
+
+
+# query from a datafile
+# Parquet files can also be used to create a temporary view and then used in SQL statements.
+df_sp.createOrReplaceTempView("parquetFile")
+df_query = spark.sql("SELECT name FROM df_sp WHERE age >= 13 AND age <= 19")
+df_query.show()
+# +------+
+# |  name|
+# +------+
+# |Justin|
+# +------+
+
+
+
