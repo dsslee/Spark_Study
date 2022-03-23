@@ -95,4 +95,56 @@ df_query.show()
 # +------+
 
 
+# using query directly from DB
+import pyspark
+from pyspark.sql imort SparkSession
+
+# DB INFO
+db_info = {
+	'WP':{
+						'ur':'jdbc:oracle:thin:@xx.xxx.xxx.xx:###/WP'
+						'user':'P'
+						'password':'###'
+					 }
+	'WW':{
+						'ur':'jdbc:oracle:thin:@xx.xxx.xxx.xx:###/WW'
+						'user':'W'
+						'password':'###'
+					 }
+}
+
+odjbc_path = '/home/woori/workspace/notebook/ojdbc8.jar'
+driver='oracle.jdbc.driver.OracleDriver'
+
+spark = SparkSession \
+.builder \
+.config('spark.driver.extraClassPath',ojdbc_path) \
+.config('spark.executor.extraClassPath',ojdbc_path) \
+.config('spark.driver.memory','50g')
+.config('spark.executor.cores', '4')
+.config('spark.executor.memory', '5g')
+.config('spark.app.name', 'dsl')
+.getOrCreate()
+
+def read_table(query,db='WDMDP',db_info=db_info, driver=driver, spark=spark, num_partitions=100):
+	url =db_info[db]['url']
+	user =db_info[db]['user']
+	password =db_info[db]['password']
+
+df = spark.read.format('jdbc')\ 
+					.option('driver', driver) \ 
+					.option('url', url) \ 
+					.option('dtable', dtable) \ 
+					.option('user', user) \ 
+					.option('password', password) \ 
+					.option('numPartitions', num_partitions) \
+					.load()
+	return df 
+
+query = """(
+SELECT * FROM SMDA3103TF
+)"""
+
+df = read_table(query)
+df.show(2)
 
