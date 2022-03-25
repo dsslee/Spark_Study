@@ -44,8 +44,6 @@ def info(self, show = True):
     return result
 pyspark.sql.DataFrame.info = info
 
-
-
 def value_counts(self, subset, normalize = True, sort = True, ascending = False, show = True):
   '''
   Prints frequencies and proportion of unique value in a DataFrame
@@ -88,12 +86,6 @@ df_sp = spark.read.parquet("people.parquet")
 df_sp.createOrReplaceTempView("parquetFile")
 df_query = spark.sql("SELECT name FROM df_sp WHERE age >= 13 AND age <= 19")
 df_query.show()
-# +------+
-# |  name|
-# +------+
-# |Justin|
-# +------+
-
 
 # using query directly from DB
 import pyspark
