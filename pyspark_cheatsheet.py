@@ -134,7 +134,7 @@ df = spark.read.format('jdbc')\
 	return df 
 
 query = """(
-SELECT * FROM SMDA3103TF
+SELECT * FROM TABLENM
 )"""
 
 df = read_table(query)
