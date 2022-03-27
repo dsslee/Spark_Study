@@ -140,3 +140,7 @@ SELECT * FROM TABLENM
 df = read_table(query)
 df.show(2)
 
+
+
+
+
