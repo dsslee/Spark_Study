@@ -141,6 +141,8 @@ df = read_table(query)
 df.show(2)
 
 
-
+# Nunique()
+from pyspark.sql.functions import countDistinct
+df.select(countDistinct("col")).show()
 
 
