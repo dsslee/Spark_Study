@@ -144,8 +144,10 @@ df.show(2)
 from pyspark.sql.functions import countDistinct
 df.select(countDistinct("col")).show()
 
+
 # save to single file
 df.repartition(1).write.format(‘parquet’).mode(‘append’).save(‘balance.parquet’)
+
 
 # to pandas dataframe
 df_pd = df.toPandas()
