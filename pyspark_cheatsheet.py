@@ -149,3 +149,15 @@ df.repartition(1).write.format(‘parquet’).mode(‘append’).save(‘balance
 
 # to pandas dataframe
 df_pd = df.toPandas()
+
+
+# create date
+import datetime
+from pyspark.sql.functions import Row
+
+def get_date_df():
+   initial_date = datetime.date(2018, 1, 1)
+   days = 365
+   one_day = datetime.timedelta(days=1)
+   all_days = [{"date": initial_date + i * one_day} for i in range(days)]
+   return spark.createDataFrame(Row(**x) for x in all_days)
