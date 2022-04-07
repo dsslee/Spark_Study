@@ -161,3 +161,12 @@ def get_date_df():
    one_day = datetime.timedelta(days=1)
    all_days = [{"date": initial_date + i * one_day} for i in range(days)]
    return spark.createDataFrame(Row(**x) for x in all_days)
+
+# create dummy date
+df = spark.createDataFrame([ (123,1, "2021-01-01")
+                            , (123,1, "2021-01-06")
+                            , (123,1, "2021-02-10")
+                            , (123,0, "2021-02-28")
+                            , (777,1, "2021-01-01")
+                            , (777,1, "2021-01-01")
+			], ["id", "flag", "date"])
