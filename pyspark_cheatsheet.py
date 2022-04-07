@@ -170,3 +170,7 @@ df = spark.createDataFrame([ (123,1, "2021-01-01")
                             , (777,1, "2021-01-01")
                             , (777,1, "2021-01-01")
 			], ["id", "flag", "date"])
+
+# change string to date type
+df = df.withColumn("date", F.to_date(F.col("date"), "yyyy-MM-dd"))
+
