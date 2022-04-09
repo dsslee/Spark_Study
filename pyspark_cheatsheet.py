@@ -171,10 +171,11 @@ df = spark.createDataFrame([ (123,1, "2021-01-01")
                             , (777,1, "2021-01-01")
 			], ["id", "flag", "date"])
 
+
 # change string to date type
 df = df.withColumn("date", F.to_date(F.col("date"), "yyyy-MM-dd"))
 
-# time related
+# time related features
 from pyspark.sql.functions import year,month, quarter,weekofyear, dayofweek,date_format, to_date
 df = df.withColumn("year", year(df.date))
 df = df.withColumn("month", month(df.date))
