@@ -182,5 +182,5 @@ df = df.withColumn("month", month(df.date))
 df = df.withColumn("quarter", quarter(df.date))
 df = df.withColumn("day_of_month", date_format(col("date"), "d")
 df = df.withColumn("day_of_year", date_format(col("date"), "D")
-df = df.withColumn("week_of_year", weekofyear(df.date))
+df = df.withColumn("week_of_year", weekofyear(df.date)) # deprecated in spark3
 df = df.withColumn("day_of_year", dayofweek(df.date))
