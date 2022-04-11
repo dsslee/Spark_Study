@@ -175,6 +175,7 @@ df = spark.createDataFrame([ (123,1, "2021-01-01")
 # change string to date type
 df = df.withColumn("date", F.to_date(F.col("date"), "yyyy-MM-dd"))
 
+
 # time related features
 from pyspark.sql.functions import year,month, quarter,weekofyear, dayofweek,date_format, to_date
 df = df.withColumn("year", year(df.date))
@@ -184,3 +185,4 @@ df = df.withColumn("day_of_month", date_format(col("date"), "d")
 df = df.withColumn("day_of_year", date_format(col("date"), "D")
 df = df.withColumn("week_of_year", weekofyear(df.date)) # deprecated in spark3
 df = df.withColumn("day_of_year", dayofweek(df.date))
+		   
