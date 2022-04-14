@@ -186,5 +186,4 @@ df = df.withColumn("day_of_year", date_format(col("date"), "D")
 df = df.withColumn("week_of_year", weekofyear(df.date)) # deprecated in spark3
 df = df.withColumn("day_of_year", dayofweek(df.date))
 		   
-df = df.withColumn("day_of_year", dayofweek(df.date))
 		   
