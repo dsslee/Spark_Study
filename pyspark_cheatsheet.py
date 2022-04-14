@@ -150,6 +150,8 @@ df.repartition(1).write.format(‘parquet’).mode(‘append’).save(‘balance
 # to pandas dataframe
 df_pd = df.toPandas()
 
+# save as feather
+feather.write_feather(df_pd, 'example_feather')
 
 # create date
 import datetime
