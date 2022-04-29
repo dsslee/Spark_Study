@@ -210,4 +210,6 @@ with open(CONFIG_FILE) as f:
 	DB_DIR = config_data["directory"]["main_dir"]
 	DB_DIR = config_data["directory"]["data_dir"]
 	DB_DIR = config_data["directory"]["file_nm"]
+# drop 
+df_query=df_query.drop("cust_id", "inst_id", "account_num","seq_num", "currency")
 
