@@ -197,3 +197,17 @@ df = f.Window()
 # Query from loaded file
 
 # Filter
+
+# importing json		   
+import json
+import pandas as pd
+CONFIG_FILE= 'load_data.json'
+
+with open(CONFIG_FILE) as f:
+	config_data = json.load(f):
+	
+	DB_DIR = config_data["directory"]["db_data_dir"]
+	DB_DIR = config_data["directory"]["main_dir"]
+	DB_DIR = config_data["directory"]["data_dir"]
+	DB_DIR = config_data["directory"]["file_nm"]
+
