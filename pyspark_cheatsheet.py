@@ -196,8 +196,6 @@ df = f.Window()
 # Read from DB
 # Query from loaded file
 
-# Filter
-
 # drop 
 df_query=df_query.drop("cust_id", "inst_id", "account_num","seq_num", "currency")
 
