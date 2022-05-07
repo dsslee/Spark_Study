@@ -203,8 +203,5 @@ df_query=df_query.drop("cust_id", "inst_id", "account_num","seq_num", "currency"
 df_s = spark.createDataFrame(df)
 		   
 # concat
-df = df.select("*", concat(df.colA, lit("_"), df.colB)).alias("colNew")
-
-or 
-
-√df = df.select("*", concat(col("colA"), lit("_"), col("colB"))).alias("colNew")
+df = df.select("*", concat(df.colA, lit("_"), df.colB)).alias("colNew") 
+df = df.select("*", concat(col("colA"), lit("_"), col("colB"))).alias("colNew")
