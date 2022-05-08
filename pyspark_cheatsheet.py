@@ -190,7 +190,6 @@ df = df.withColumn("day_of_year", dayofweek(df.date))
 		   
 # window functions: rolling + forward
 df = f.Window()
-
 		   
 # Read from file
 # Read from DB
