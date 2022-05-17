@@ -201,7 +201,7 @@ df_query=df_query.drop("cust_id", "inst_id", "account_num","seq_num", "currency"
 # from pandas dataframe to spark dataframe
 df_s = spark.createDataFrame(df)
 		   
-# concat
+# concat: 2 methods
 df = df.select("*", concat(df.colA, lit("_"), df.colB)).alias("colNew") 
 df = df.select("*", concat(col("colA"), lit("_"), col("colB"))).alias("colNew")
 
