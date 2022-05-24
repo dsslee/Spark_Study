@@ -205,3 +205,4 @@ df_s = spark.createDataFrame(df)
 df = df.select("*", concat(df.colA, lit("_"), df.colB)).alias("colNew") 
 df = df.select("*", concat(col("colA"), lit("_"), col("colB"))).alias("colNew")
 
+# windowing
